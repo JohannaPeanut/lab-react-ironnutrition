@@ -30,10 +30,19 @@ function App() {
   }
   
   const addFoodTodayList = (food) => {
-    console.log(food)
-    const newArray = [...todayFood, food]
+
+    let includes = false;
+    let newArray = todayFood.map(element => {
+      if(element.name === food.name) {
+        includes = true;
+        return {id: Math.random(), no: Number(element.no)+Number(food.no), name: element.name, calories: food.calories}
+      } else {
+        return element
+      }
+    })
+    if(!includes) newArray = [...newArray, food];
     setTodayFood(newArray)
-    console.log(todayFood)
+    
   }
 
   return (

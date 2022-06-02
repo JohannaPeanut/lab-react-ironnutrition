@@ -18,6 +18,7 @@ const FoodBox = (props) => {
       const calories = dish.calories
       const newFood = { id, name, calories, no}
       props.addFood(newFood)
+      setNo(1)
     }
 
   
@@ -30,7 +31,7 @@ const FoodBox = (props) => {
                     <article className="media">
                       <div className="media-left">
                         <figure className="image is-64x64">
-                          <img src={dish.image} />
+                          <img src={dish.image} alt="food image"/>
                         </figure>
                       </div>
                       <div className="media-content">
