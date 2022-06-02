@@ -3,19 +3,20 @@ import { useState } from "react";
 
 const AddFoodForm = (props) => {
 
-const [ foodName, setFoodName] = useState('')
+const [ name, setFoodName] = useState('')
 const [ calories, setCalories] = useState('')
 const [ image, setImage] = useState('')
 
 const handleFormSubmit = (event) => {
     event.preventDefault();
     const id = Math.random()
-    const newFood = { foodName, calories, image: "https://i.imgur.com/BMdJhu5.jpg", id }
+    const newFood = { name, calories, image: "https://i.imgur.com/BMdJhu5.jpg", id }
     props.addFood(newFood)
     console.log(newFood)
     setFoodName('')
     setCalories('')
     setImage('')
+    props.toggleForm()
 }
 
 const handleFoodInputChange = (event ) => {
@@ -39,7 +40,7 @@ const handleImageInputChange = (event ) => {
             <div className="field">
                 <label className="label">Name of Food</label>
                 <div className="control">
-                    <input className="input" value={foodName} type="text" onChange={handleFoodInputChange} placeholder='New Food...' />
+                    <input className="input" value={name} type="text" onChange={handleFoodInputChange} placeholder='New Food...' />
                 </div>
             </div>
             <div className="field">
