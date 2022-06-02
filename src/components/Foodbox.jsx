@@ -1,7 +1,11 @@
 import React from "react";
 
 const FoodBox = (props) => {
-    console.log(props.food)
+
+    const handleMessageChange = (event) => {
+        const value = event.target.value;
+      }
+   
     const dish = props.food;
     return (
 
@@ -23,7 +27,7 @@ const FoodBox = (props) => {
                        <div className="media-right">
                          <div className="field has-addons">
                            <div className="control">
-                             <input className="input" type="number" value="1" />
+                             <input className="input" type="number" value="1" onChange={handleMessageChange} />
                            </div>
                            <div className="control">
                              <button className="button is-info">
