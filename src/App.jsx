@@ -30,7 +30,6 @@ function App() {
   }
   
   const addFoodTodayList = (food) => {
-
     let includes = false;
     let newArray = todayFood.map(element => {
       if(element.name === food.name) {
@@ -42,7 +41,11 @@ function App() {
     })
     if(!includes) newArray = [...newArray, food];
     setTodayFood(newArray)
-    
+  }
+
+  const removeFromTodayList = (item) => {
+    const newArray = todayFood.filter((food) => item.name !== food.name)
+    setTodayFood(newArray)
   }
 
   return (
@@ -60,7 +63,7 @@ function App() {
               })}
         </div>
         <div className="column">      
-          <TodayFoodList food={todayFood}/>
+          <TodayFoodList removeFunction={removeFromTodayList} food={todayFood}/>
         </div>
       </div>
     </div>

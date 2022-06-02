@@ -2,6 +2,10 @@ import React from "react";
 
 const TodayFoodList = (props) => {
 
+    const handleRemoval = (item) => {
+        props.removeFunction(item)
+    }
+
     //const [totalCalories, setTotalCalories] = useState(0)
     
     return (
@@ -11,7 +15,7 @@ const TodayFoodList = (props) => {
                     <ul>
                         {props.food.map(item => {
                             return (
-                             <li key={item.id}>{item.no} {item.name} {Number(item.calories)*Number(item.no)}</li>
+                             <li key={item.id}>{item.no} {item.name} {Number(item.calories)*Number(item.no)} <button onClick={()=>handleRemoval(item)}>🛢</button></li>
                             )
                         })}
                     </ul>
